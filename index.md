@@ -132,5 +132,4 @@ void loop() {
     digitalWrite(ledPin, LOW);
   }
 }
-
 If you switch LOW and HIGH, the function of the button will reverse.
