@@ -40,7 +40,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YkfFGZ1TbZA?si=SSonITQkPW6j-yTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-My project is a automative robot which reacts to proximity from one's hand. In milestone 1, I got the LED light and LCD screen to light up and display text and my initials. In doing so, I learned how to code the LED lights in the arduino IDE and the LCD screen. Going foward, I aim to integrate all these components, as well as the sirvos together, so that it reacts correctly to proximity from my hand with the ultrasonic sensor. Once those items are working, I can begin the build of the actual robot with the 3D printed parts
+My project is a automative robot which reacts to proximity from one's hand. In milestone 1, I got the LED light and LCD screen to light up and display text and my initials. In doing so, I learned how to code the LED lights in the arduino IDE and the LCD screen. Going foward, I aim to integrate all these components, as well as the servos together, so that it reacts correctly to proximity from my hand with the ultrasonic sensor. Once those items are working, I can begin the build of the actual robot with the 3D printed parts
 
 <!--- 
 /*
