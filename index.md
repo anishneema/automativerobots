@@ -88,22 +88,24 @@ To watch the BSE tutorial on how to create a portfolio, click here.
 # Arduino Starter Project
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IUZZ2V6nGmU?si=mzgKdNSG2Q01wio3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-I chose this starter project because it would give me a good introduction into how to code and use the arduino. Additonally, it gave me great experience with soldering, and electrical components. I now have basic idea of a circuit, and understand the layout of the breadboard. This knowledge has given me the confidence to continue on my main project, which will use the arduino extensively, as well as plently of electrical components. 
 
-starterproject.png
-Figure 1: Arduino and breadboard wiring 
+I chose this starter project because it would give me a good introduction into how to code and use the Arduino. Additionally, it gave me great experience with soldering, and electrical components. I now have a basic idea of a circuit, and understand the layout of the breadboard. This knowledge has given me the confidence to continue on my main project, which will use the Arduino extensively, as well as plenty of electrical components. 
 
-Yellow- provides 5 v of power
-Orange- connects to ground 
-Brown- gives power to button 
-Black- gives ground to button 
-Blue- provides digital cue 
-Black- provides ground to led with resistor to stop voltage 
+![starter project](starterproject.png)
+*Figure 1: Arduino and breadboard wiring*
+
+- **Yellow**: provides 5V of power
+- **Orange**: connects to ground 
+- **Brown**: gives power to button 
+- **Black**: gives ground to button 
+- **Blue**: provides digital cue 
+- **Black**: provides ground to LED with resistor to stop voltage 
 
 When the button is pressed, the circuit is allowed to connect, causing the LED to light up. It is also possible to reverse this effect with the code. 
 
-Code: https://docs.arduino.cc/built-in-examples/digital/Button/
+[Code](https://docs.arduino.cc/built-in-examples/digital/Button/):
 
+```cpp
 const int buttonPin = 2;  // the number of the pushbutton pin
 const int ledPin = 13;    // the number of the LED pin
 
@@ -130,10 +132,3 @@ void loop() {
     digitalWrite(ledPin, LOW);
   }
 }
-
-*If you switch Low, and High, the function of the button will reverse. 
-
-
-
-
-
