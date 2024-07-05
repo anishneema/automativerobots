@@ -1,5 +1,4 @@
-Here's a beautified version of your portfolio with improved formatting and writing:
-markdownCopy# WALL-E Robot: An Interactive Companion
+# WALL-E Robot: An Interactive Companion
 
 Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. 
 
