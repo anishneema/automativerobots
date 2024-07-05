@@ -103,7 +103,7 @@ I chose this starter project because it would give me a good introduction into h
 
 When the button is pressed, the circuit is allowed to connect, causing the LED to light up. It is also possible to reverse this effect with the code. 
 
-[Code](https://docs.arduino.cc/built-in-examples/digital/Button/):
+[Project Guide](https://docs.arduino.cc/built-in-examples/digital/Button/):
 
 ```cpp
 const int buttonPin = 2;  // the number of the pushbutton pin
@@ -132,7 +132,4 @@ void loop() {
     digitalWrite(ledPin, LOW);
   }
 }
-
-cpp'''
-
-If you switch LOW and HIGH, the function of the button will reverse.
+'''
