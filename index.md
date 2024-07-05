@@ -26,15 +26,238 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+With the Arduino IDE, I have sucessfully implemented multiple different functions for each component of the WALL-E robot highlighted in the schematic below. In addition to creating the new code, I wired and implemented the ultrasonic sensor and multiple servos. The ultrasonic sensor works by reflecting sound waves, and thus, calculates distance by measuring the amount of time it takes to reach back to the sensor. It had been a challenge to convert to a tangible distance, but with the knowledge of the speed of sound, I was able to use the distance to trigger each function. Before the final draft, I need to make the 3D printed WALL-E bot, and install the parts of it correctly as well as edit the code to show emotions corresponding to the correct distance. Below is the schematic, and code with comments explaining the function of it. 
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
+![Schematic](secondmilestone.png)
+*Figure 3: Wiring for all components*
+
+[Ultra-sonic sensor guide](https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1):
+
+```c++
+//packages installed from the internet
+#include <LiquidCrystal_I2C.h>
+#include <LedControl.h>
+#include <Servo.h>
+
+// Pins for LED matrix connected to arduino
+int DIN = 11;
+int CS = 9;
+int CLK = 10;
+int DIN_2 = 6;
+int CS_2 = 8;
+int CLK_2 = 7;
+
+ // Create instances for LCD and LED matrix
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+LedControl ledmatrix = LedControl(DIN, CLK, CS);
+LedControl ledmatrix_2 = LedControl(DIN_2, CLK_2, CS_2);
+
+//create instances for the Servos
+Servo pan;  
+Servo tilt;
+Servo leftBrow;
+Servo rightBrow;
+
+//pins for the ultrasonic sensor
+const int trigPin = 13;  
+const int echoPin = 12;
+
+//variable to measure distance
+float duration, distance;  
+
+// Define byte arrays with LED matrix patterns for each emotion
+//0 represents no light while 1 represents on 
+byte happyL_bmp[8] = {
+  B00000000, 
+  B00011100, 
+  B00100100, 
+  B01011100,
+  B01011100,
+  B00100100, 
+  B00011100, 
+  B00000000
+};
+byte happyR_bmp[8] = {
+  B00000000, 
+  B00011100, 
+  B00100100, 
+  B01011100,
+  B01011100, 
+  B00100100, 
+  B00011100, 
+  B00000000
+};
+byte neutralL_bmp[8] = {
+  B00000000, 
+  B00111100, 
+  B01000010, 
+  B01011010,
+  B01011010, 
+  B01000010, 
+  B00111100, 
+  B00000000
+};
+byte neutralR_bmp[8] = {
+  B00000000, 
+  B00111100, 
+  B01000010, 
+  B01011010,
+  B01011010,
+   B01000010, 
+   B00111100, 
+   B00000000
+};
+byte sadL_bmp[8] = {
+  B00000000, 
+  B00111100, 
+  B01000010, 
+  B01011010,
+  B00111010,
+  B00010010, 
+  B00001100, 
+  B00000000
+};
+byte sadR_bmp[8] = {
+  B00000000, 
+  B00001100, 
+  B00010010, 
+  B00111010,
+  B01011010,
+  B01000010, 
+  B00111100, 
+  B00000000
+};
+byte surprisedL_bmp[8] = {
+  B01111110, 
+  B10000001, 
+  B10000001, 
+  B10011001,
+  B10011001, 
+  B10000001, 
+  B10000001, 
+  B01111110
+};
+byte surprisedR_bmp[8] = {
+  B01111110, 
+  B10000001, 
+  B10000001, 
+  B10011001,
+  B10011001, 
+  B10000001, 
+  B10000001, 
+  B01111110
+};
+
+// Function to display pattern on LED matrix
+//uses for loop to iterate through each led on the matrix 
+void displayPattern(byte patternL[], byte patternR[]) {
+  for (int i = 0; i < 8; i++) {
+    ledmatrix.setColumn(0, i, patternL[i]);
+    ledmatrix_2.setColumn(0, i, patternR[i]);
+  }
+  //all serial prints are for debugging
+  Serial.println("Pattern displayed");
+}
+
+// Function to write emotion on LCD
+void displayEmotion(const char* emotion) {
+  lcd.clear();
+  lcd.print(emotion);
+  Serial.print("Emotion displayed: ");
+  Serial.println(emotion);
+}
+
+// Function to move servos
+void moveServos(int left, int right, int panIn, int tiltIn) {
+  leftBrow.write(left);
+  rightBrow.write(right);
+  pan.write(panIn);
+  tilt.write(tiltIn);
+  Serial.println("Servos moved");
+}
+
+// Function to measure distance using ultrasonic sensor
+float measureDistance() {
+  digitalWrite(trigPin, LOW);  
+  delayMicroseconds(2);  
+  digitalWrite(trigPin, HIGH);  
+  delayMicroseconds(10);  
+  digitalWrite(trigPin, LOW);
+  //how it calculates distance  
+  duration = pulseIn(echoPin, HIGH);  
+  return (duration * 0.0343) / 2;
+}
+
+void setup() {
+  //debugging
+  Serial.begin(9600);
+  
+  // Set up LCD
+  lcd.init();
+  lcd.backlight();
+  
+  // Set up LED matrices
+  ledmatrix.shutdown(0, false);
+  ledmatrix.setIntensity(0, 1);
+  ledmatrix.clearDisplay(0);
+  
+  ledmatrix_2.shutdown(0, false);
+  ledmatrix_2.setIntensity(0, 1);
+  ledmatrix_2.clearDisplay(0);
+  
+  // Initialize columns with letters
+  displayPattern(neutralL_bmp, neutralR_bmp);  // Initial neutral pattern
+  displayEmotion("Neutral");  // Initial neutral emotion
+  
+  //define input/outputs
+  pinMode(trigPin, OUTPUT);  
+  pinMode(echoPin, INPUT);  
+  
+  // Attach servos
+  pan.attach(5); 
+  tilt.attach(4);
+  leftBrow.attach(2);
+  rightBrow.attach(3);
+  
+  // Set initial positions
+  moveServos(0, 0, 0, 0);
+}
+
+void loop() {
+  distance = measureDistance();
+  Serial.print("Distance: ");  
+  Serial.println(distance);  
+  
+
+  // logic to display emotions based on distance
+  if (distance <= 10) {
+    displayPattern(happyL_bmp, happyR_bmp);
+    displayEmotion("Happy");
+    moveServos(100, 0, 0, 0);
+  } else if (distance <= 20) {
+    displayPattern(surprisedL_bmp, surprisedR_bmp);
+    displayEmotion("Surprised");
+    moveServos(100, 0, 100, 0);
+  } else if (distance <= 30) {
+    displayPattern(neutralL_bmp, neutralR_bmp);
+    displayEmotion("Neutral");
+    moveServos(100, 0, 0, 0);
+  } else {
+    displayPattern(sadL_bmp, sadR_bmp);
+    displayEmotion("Sad");
+    moveServos(100, 0, 0, 0);
+  }
+
+  // Move servos in loop
+  moveServos(100, 0, 100, 0);
+  delay(1000);
+  moveServos(0, 100, 0, 100);
+  delay(1000);
+}
+```
+
 -->
 # First Milestone
 
