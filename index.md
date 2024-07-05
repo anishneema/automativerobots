@@ -1,6 +1,6 @@
 WALLE ROBOT
 
-Pending description 
+Have you ever wanted a personalized robot. Well look no further, WALL-E is here, an automative robot. Moving your hand closer or away from it will change its emotions, and move the robot. To achieve this, I will use the arduino IDE to code each individual part, an ultrasonic sensor to detect distance from the person, and LCD screen and LED lights to control emotions. 
 
 | **Engineer** |**School** | **Major interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -85,8 +85,10 @@ One of the best parts about Github is that you can view how other people set up 
 
 To watch the BSE tutorial on how to create a portfolio, click here.
 -->
-# Starter Project
+# Arduino Starter Project
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IUZZ2V6nGmU?si=mzgKdNSG2Q01wio3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+I chose this starter project because it would give me a good introduction into how to code and use the arduino. Additonally, it gave me great experience with soldering, and electrical components. I now have basic idea of a circuit, and understand the layout of the breadboard. This knowledge has given me the confidence to continue on my main project, which will use the arduino extensively, as well as plently of electrical components. 
 
-Arduino starter project- I learned how to join electrical components and solder
+
+
