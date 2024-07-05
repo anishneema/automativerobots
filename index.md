@@ -1,40 +1,36 @@
-WALLE ROBOT
+Here's a beautified version of your portfolio with improved formatting and writing:
+markdownCopy# WALL-E Robot: An Interactive Companion
 
-Have you ever wanted a personalized robot. Well look no further, WALL-E is here, an automative robot. Moving your hand closer or away from it will change its emotions, and move the robot. To achieve this, I will use the arduino IDE to code each individual part, an ultrasonic sensor to detect distance from the person, and LCD screen and LED lights to control emotions. 
+Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. 
 
-| **Engineer** |**School** | **Major interest** | **Grade** |
+| **Engineer** | **School** | **Major Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| Anish N | Dougherty Valley High School | Computer Engineering | Incoming Senior
+| Anish N | Dougherty Valley High School | Computer Engineering | Incoming Senior |
 
-<!--- **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
+![WALL-E Logo](logo.svg)
 
-![Headstone Image](logo.svg)
-  
-# Final Milestone
-
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your final milestone, explain the outcome of your project. Key details to include are:
-- What you've accomplished since your previous milestone
-- What your biggest challenges and triumphs were at BSE
-- A summary of key topics you learned about
-- What you hope to learn in the future after everything you've learned at BSE
-
--->
-
-# Second Milestone
-
+## Second Milestone: Integrating the components
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-With the Arduino IDE, I have sucessfully implemented multiple different functions for each component of the WALL-E robot highlighted in the schematic below. In addition to creating the new code, I wired and implemented the ultrasonic sensor and multiple servos. The ultrasonic sensor works by reflecting sound waves, and thus, calculates distance by measuring the amount of time it takes to reach back to the sensor. It had been a challenge to convert to a tangible distance, but with the knowledge of the speed of sound, I was able to use the distance to trigger each function. Before the final draft, I need to make the 3D printed WALL-E bot, and install the parts of it correctly as well as edit the code to show emotions corresponding to the correct distance. Below is the schematic, and code with comments explaining the function of it. 
+
+Using the Arduino IDE, I've successfully implemented multiple functions for each component of the WALL-E robot, as highlighted in the schematic below. Key achievements include:
+
+- Wiring and implementing the ultrasonic sensor and multiple servos
+- Utilizing the ultrasonic sensor to calculate distance by measuring reflected sound waves
+- Converting sensor data into tangible distances to trigger various functions
+
+### Next Steps
+Before the final draft, I plan to:
+1. Create and assemble the 3D printed WALL-E bot
+2. Install components correctly
+3. Fine-tune the code to display emotions corresponding to the correct distances
 
 ![Schematic](secondmilestone.png)
 *Figure 3: Wiring for all components*
 
 [Ultra-sonic sensor guide](https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1):
 
+### My code and explanations 
 ```c++
 //packages installed from the internet
 #include <LiquidCrystal_I2C.h>
@@ -259,11 +255,21 @@ void loop() {
 ```
 
 
-# First Milestone
+# First Milestone: Lighting up screens
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YkfFGZ1TbZA?si=SSonITQkPW6j-yTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-My project is a automative robot which reacts to proximity from one's hand. In milestone 1, I got the LED light and LCD screen to light up and display text and my initials. In doing so, I learned how to code the LED lights in the arduino IDE and the LCD screen. Going foward, I aim to integrate all these components, as well as the servos together, so that it reacts correctly to proximity from my hand with the ultrasonic sensor. Once those items are working, I can begin the build of the actual robot with the 3D printed parts
+In this initial phase, I focused on:
+
+- Getting the LED lights and LCD screen to function properly
+- Displaying text and my initials on the screens
+- Learning to code the LED lights and LCD screen using the Arduino IDE
+
+Moving forward, I aim to:
+
+- Integrate all components, including servos
+- Implement proximity-based reactions using the ultrasonic sensor
+- Begin construction of the physical robot using 3D printed parts
 
 ![starter project](firstmilestone.png)
 *Figure 2: Wiring for LED and LCD Screens*
