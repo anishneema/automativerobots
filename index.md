@@ -14,14 +14,14 @@ Have you ever wanted a personalized robot companion? Look no further! WALL-E is 
 
 In this milestone, I assembled a working automative robot. Key achievements include: 
 
--assembling each 3D printed part
--Finding acceptable screws for each part
--Coding new patterns and coding logic for servo movement
+- assembling each 3D printed part
+- Finding acceptable screws for each part
+- Coding new patterns and coding logic for servo movement
 
 Challenges included: 
--Miscalibrating servos
--Breaking servos due to non-grounded servos
--coding blinking LED light
+- Miscalibrating servos
+- Breaking servos due to non-grounded servos
+- coding blinking LED light
 
 This part of the project involved a lot of screwing and hardware integration. Organization of the wires was challenging, causing me to rewire all the components to make space inside of the box. (Shown in picture below). After assembling and organization the hardware, minor tweaks were made to the code(linked below) in order to make the WALLE- robot to have different emotions at different distances. 
 
@@ -93,7 +93,7 @@ Below are explanations for every component in the schematic:
 - **Signal Wires (Yellow/Other Colors)**: Carry control signals from the Arduino to the servos, LCD, ultrasonic sensor, and LED matrix.
 
 ### My code and explanations 
-```// Include libraries for LCD, LED matrix, and Servo motors
+```c++ // Include libraries for LCD, LED matrix, and Servo motors
 #include <LiquidCrystal_I2C.h>  // Library for I2C LCD
 #include <LedControl.h>         // Library for LED matrix
 #include <Servo.h>              // Library for Servo motors
