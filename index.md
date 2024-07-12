@@ -25,10 +25,10 @@ Challenges included:
 
 This part of the project involved a lot of screwing and hardware integration. Organization of the wires was challenging, causing me to rewire all the components to make space inside of the box. (Shown in picture below). After assembling and organization the hardware, minor tweaks were made to the code(linked below) in order to make the WALLE- robot to have different emotions at different distances. 
 
-![Real project depiction](secondmilestone.png)
+![Real project depiction](realproject.png)
 *Figure 5: My project*
 
-![Schematic](secondmilestone.png)
+![Schematic](fixedschematic.png)
 *Figure 4: Wiring for all components*
 
 The purple wire connecting the servos to the ground is key for a couple reasons
@@ -91,16 +91,6 @@ Below are explanations for every component in the schematic:
 - **Power Wires (Red)**: Carry power from the Arduino and battery pack to the components.
 - **Ground Wires (Black/Purple)**: Create a common ground for all components, essential for consistent operation.
 - **Signal Wires (Yellow/Other Colors)**: Carry control signals from the Arduino to the servos, LCD, ultrasonic sensor, and LED matrix.
-### Next Steps
-Before the final draft, I plan to:
-1. Create and assemble the 3D printed WALL-E bot
-2. Install components correctly
-3. Fine-tune the code to display emotions corresponding to the correct distances
-
-![Schematic](secondmilestone.png)
-*Figure 3: Wiring for all components*
-
-[Ultra-sonic sensor guide](https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1):
 
 ### My code and explanations 
 ```// Include libraries for LCD, LED matrix, and Servo motors
