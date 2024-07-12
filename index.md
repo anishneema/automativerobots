@@ -2,9 +2,9 @@
 
 Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. 
 
-![WALL-E Logo](logo.svg)
 
-## Third Milestone: Working Robo!
+
+### Third Milestone: Working Robo!
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -97,11 +97,10 @@ During testing for milestone #3, one of my servos short-circuited, leading to th
 - **Ground Wires (Black/Purple)**: Create a unified ground for all components, essential for consistent operation.
 - **Signal Wires (Yellow/Other Colors)**: Transmit control signals from Arduino to servos, LCD screen, ultrasonic sensor, and LED matrix.
 
-### Code and Explanation
+### Code and explanations 
+```c++ 
 
-
-### My code and explanations 
-```cpp // Include libraries for LCD, LED matrix, and Servo motors
+// Include libraries for LCD, LED matrix, and Servo motors
 #include <LiquidCrystal_I2C.h>  // Library for I2C LCD
 #include <LedControl.h>         // Library for LED matrix
 #include <Servo.h>              // Library for Servo motors
@@ -340,6 +339,7 @@ void loop() {
 ```
 
 This code is mostly the same as milestone 2, but with minor tweaks. 
+
 ## Second Milestone: Integrating the components
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
