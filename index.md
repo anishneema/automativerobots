@@ -2,28 +2,23 @@
 
 Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. 
 
-| **Engineer** | **School** | **Major Interest** | **Grade** |
-|:--:|:--:|:--:|:--:|
-| Anish N | Dougherty Valley High School | Computer Engineering | Incoming Senior |
-
 ![WALL-E Logo](logo.svg)
 
 ## Third Milestone: Working Robo!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In this milestone, I assembled a working automative robot. Key achievements include: 
 
-- assembling each 3D printed part
-- Finding acceptable screws for each part
-- Coding new patterns and coding logic for servo movement
+- Assembling each 3D printed part
+- Finding suitable screws for each part
+- Coding new patterns and logic for servo movement
 
-Challenges included: 
+### Challenges
+
 - Miscalibrating servos
-- Breaking servos due to non-grounded servos
-- coding blinking LED light
-
-This part of the project involved a lot of screwing and hardware integration. Organization of the wires was challenging, causing me to rewire all the components to make space inside of the box. (Shown in picture below). After assembling and organization the hardware, minor tweaks were made to the code(linked below) in order to make the WALLE- robot to have different emotions at different distances. 
+- Breaking servos due to non-grounded connections
+- Coding for blinking LED lights
 
 ![Real project depiction](realproject.png)
 *Figure 5: My project*
@@ -31,69 +26,82 @@ This part of the project involved a lot of screwing and hardware integration. Or
 ![Schematic](fixedschematic.png)
 *Figure 4: Wiring for all components*
 
-The purple wire connecting the servos to the ground is key for a couple reasons
-1. It completes the circuit and ensures that the current can return to the power source, allowing the servos to function properly
-2. It provides consistent voltage and avoids short circuits
+The purple wire connecting the servos to the ground is crucial for proper functioning:
 
-While testing components for milestone #3, my servo short circuted and stopped working, leading me to make this discovery. 
+1. It completes the circuit, allowing current to return to the power source for servo operation.
+2. It ensures consistent voltage, preventing short circuits.
 
-Below are explanations for every component in the schematic: 
-## Arduino Uno
-- **Microcontroller**: Acts as the brain of the project, processing inputs and controlling outputs.
+During testing for milestone #3, one of my servos short-circuited, leading to this discovery.
+
+### Components Overview
+
+#### Arduino Uno
+
+- **Microcontroller**: Acts as the project's brain, processing inputs and controlling outputs.
 - **Connections**:
-  - **Digital Pins**: Used to control the servos and the LCD screen.
-  - **Analog Pins**: Not used in this specific schematic.
+  - **Digital Pins**: Used for controlling servos and the LCD screen.
+  - **Analog Pins**: Not utilized in this schematic.
   - **Power Pins**: Provide power to the breadboard and other components.
 
-## Breadboard
-- **Prototyping Board**: Used to make temporary circuits without soldering.
-- **Connections**:
-  - **Power Rails**: Distribute power and ground from the Arduino and battery pack to various components.
-  - **Signal Lines**: Connect different components to the Arduino's I/O pins.
+#### Breadboard
 
-## Servos
+- **Prototyping Board**: Used for creating temporary circuits without soldering.
+- **Connections**:
+  - **Power Rails**: Distribute power and ground from the Arduino and battery pack.
+  - **Signal Lines**: Connect various components to the Arduino's I/O pins.
+
+#### Servos
+
 - **Actuators**: Convert electrical signals into mechanical movement.
 - **Connections**:
-  - **Signal Wires (Yellow)**: Connected to Arduino digital pins to receive PWM control signals.
+  - **Signal Wires (Yellow)**: Connect to Arduino digital pins for PWM control.
   - **Power Wires (Red)**: Connected to the positive terminal of the battery pack.
-  - **Ground Wires (Black)**: Connected to the ground rail on the breadboard, linked to the Arduino ground (via the purple wire).
+  - **Ground Wires (Black)**: Connected to the breadboard ground, linked to Arduino ground via the purple wire.
 
-## Ultrasonic Sensor (HC-SR04)
-- **Distance Measurement**: Measures the distance to an object using ultrasonic waves.
+#### Ultrasonic Sensor (HC-SR04)
+
+- **Distance Measurement**: Uses ultrasonic waves to measure distance to an object.
 - **Connections**:
-  - **VCC**: Connected to the 5V pin on the Arduino for power.
-  - **GND**: Connected to the ground rail on the breadboard.
-  - **Trig and Echo Pins**: Connected to specific digital pins on the Arduino to send and receive signals.
+  - **VCC**: Connected to Arduino's 5V pin for power.
+  - **GND**: Connected to the breadboard ground.
+  - **Trig and Echo Pins**: Connected to specific digital pins on the Arduino for sending and receiving signals.
 
-## 16x2 LCD Screen
-- **Display**: Shows information like sensor readings or system status.
+#### 16x2 LCD Screen
+
+- **Display**: Shows information such as sensor readings or system status.
 - **Connections**:
-  - **VCC**: Connected to the 5V pin on the Arduino for power.
-  - **GND**: Connected to the ground rail on the breadboard.
-  - **Data Pins**: Connected to specific digital pins on the Arduino to receive data.
-  - **Contrast Pin**: Connected to a potentiometer (not shown) to adjust the display contrast.
-  - **Backlight**: Powered from the same power source as the LCD.
+  - **VCC**: Connected to Arduino's 5V pin for power.
+  - **GND**: Connected to the breadboard ground.
+  - **Data Pins**: Connected to specific digital pins on the Arduino for data input.
+  - **Contrast Pin**: Connected to a potentiometer (not shown) for adjusting display contrast.
+  - **Backlight**: Powered from the same source as the LCD.
 
-## 8x8 LED Matrix
-- **Visual Indicator**: Can be used to display patterns or simple graphics.
+#### 8x8 LED Matrix
+
+- **Visual Indicator**: Used for displaying patterns or simple graphics.
 - **Connections**:
-  - **VCC**: Connected to the 5V pin on the Arduino for power.
-  - **GND**: Connected to the ground rail on the breadboard.
-  - **Control Pins**: Connected to specific digital pins on the Arduino to receive data and control signals.
+  - **VCC**: Connected to Arduino's 5V pin for power.
+  - **GND**: Connected to the breadboard ground.
+  - **Control Pins**: Connected to specific digital pins on the Arduino for data and control signals.
 
-## 4xAAA Battery Pack
-- **Power Supply**: Provides additional power to the servos, ensuring they have enough current to operate.
+#### 4xAAA Battery Pack
+
+- **Power Supply**: Provides additional power to servos to ensure sufficient current for operation.
 - **Connections**:
-  - **Positive Terminal**: Connected to the power rail on the breadboard to supply voltage to the servos.
-  - **Negative Terminal**: Connected to the ground rail on the breadboard, linking it to the Arduino ground.
+  - **Positive Terminal**: Connected to the breadboard power rail for supplying voltage to servos.
+  - **Negative Terminal**: Connected to the breadboard ground, establishing a common ground with the Arduino.
 
-## Wires and Connections
-- **Power Wires (Red)**: Carry power from the Arduino and battery pack to the components.
-- **Ground Wires (Black/Purple)**: Create a common ground for all components, essential for consistent operation.
-- **Signal Wires (Yellow/Other Colors)**: Carry control signals from the Arduino to the servos, LCD, ultrasonic sensor, and LED matrix.
+#### Wires and Connections
+
+- **Power Wires (Red)**: Carry power from Arduino and battery pack to components.
+- **Ground Wires (Black/Purple)**: Create a unified ground for all components, essential for consistent operation.
+- **Signal Wires (Yellow/Other Colors)**: Transmit control signals from Arduino to servos, LCD screen, ultrasonic sensor, and LED matrix.
+
+### Code and Explanation
+
 
 ### My code and explanations 
-```c++ // Include libraries for LCD, LED matrix, and Servo motors
+```cpp // Include libraries for LCD, LED matrix, and Servo motors
 #include <LiquidCrystal_I2C.h>  // Library for I2C LCD
 #include <LedControl.h>         // Library for LED matrix
 #include <Servo.h>              // Library for Servo motors
