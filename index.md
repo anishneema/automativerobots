@@ -8,6 +8,340 @@ Have you ever wanted a personalized robot companion? Look no further! WALL-E is 
 
 ![WALL-E Logo](logo.svg)
 
+## Third Milestone: Working Robo!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+In this milestone, I assembled a working automative robot. Key achievements include: 
+
+-assembling each 3D printed part
+-Finding acceptable screws for each part
+-Coding new patterns and coding logic for servo movement
+
+Challenges included: 
+-Miscalibrating servos
+-Breaking servos due to non-grounded servos
+-coding blinking LED light
+
+This part of the project involved a lot of screwing and hardware integration. Organization of the wires was challenging, causing me to rewire all the components to make space inside of the box. (Shown in picture below). After assembling and organization the hardware, minor tweaks were made to the code(linked below) in order to make the WALLE- robot to have different emotions at different distances. 
+
+![Real project depiction](secondmilestone.png)
+*Figure 5: My project*
+
+![Schematic](secondmilestone.png)
+*Figure 4: Wiring for all components*
+
+The purple wire connecting the servos to the ground is key for a couple reasons
+1. It completes the circuit and ensures that the current can return to the power source, allowing the servos to function properly
+2. It provides consistent voltage and avoids short circuits
+
+While testing components for milestone #3, my servo short circuted and stopped working, leading me to make this discovery. 
+
+Below are explanations for every component in the schematic: 
+## Arduino Uno
+- **Microcontroller**: Acts as the brain of the project, processing inputs and controlling outputs.
+- **Connections**:
+  - **Digital Pins**: Used to control the servos and the LCD screen.
+  - **Analog Pins**: Not used in this specific schematic.
+  - **Power Pins**: Provide power to the breadboard and other components.
+
+## Breadboard
+- **Prototyping Board**: Used to make temporary circuits without soldering.
+- **Connections**:
+  - **Power Rails**: Distribute power and ground from the Arduino and battery pack to various components.
+  - **Signal Lines**: Connect different components to the Arduino's I/O pins.
+
+## Servos
+- **Actuators**: Convert electrical signals into mechanical movement.
+- **Connections**:
+  - **Signal Wires (Yellow)**: Connected to Arduino digital pins to receive PWM control signals.
+  - **Power Wires (Red)**: Connected to the positive terminal of the battery pack.
+  - **Ground Wires (Black)**: Connected to the ground rail on the breadboard, linked to the Arduino ground (via the purple wire).
+
+## Ultrasonic Sensor (HC-SR04)
+- **Distance Measurement**: Measures the distance to an object using ultrasonic waves.
+- **Connections**:
+  - **VCC**: Connected to the 5V pin on the Arduino for power.
+  - **GND**: Connected to the ground rail on the breadboard.
+  - **Trig and Echo Pins**: Connected to specific digital pins on the Arduino to send and receive signals.
+
+## 16x2 LCD Screen
+- **Display**: Shows information like sensor readings or system status.
+- **Connections**:
+  - **VCC**: Connected to the 5V pin on the Arduino for power.
+  - **GND**: Connected to the ground rail on the breadboard.
+  - **Data Pins**: Connected to specific digital pins on the Arduino to receive data.
+  - **Contrast Pin**: Connected to a potentiometer (not shown) to adjust the display contrast.
+  - **Backlight**: Powered from the same power source as the LCD.
+
+## 8x8 LED Matrix
+- **Visual Indicator**: Can be used to display patterns or simple graphics.
+- **Connections**:
+  - **VCC**: Connected to the 5V pin on the Arduino for power.
+  - **GND**: Connected to the ground rail on the breadboard.
+  - **Control Pins**: Connected to specific digital pins on the Arduino to receive data and control signals.
+
+## 4xAAA Battery Pack
+- **Power Supply**: Provides additional power to the servos, ensuring they have enough current to operate.
+- **Connections**:
+  - **Positive Terminal**: Connected to the power rail on the breadboard to supply voltage to the servos.
+  - **Negative Terminal**: Connected to the ground rail on the breadboard, linking it to the Arduino ground.
+
+## Wires and Connections
+- **Power Wires (Red)**: Carry power from the Arduino and battery pack to the components.
+- **Ground Wires (Black/Purple)**: Create a common ground for all components, essential for consistent operation.
+- **Signal Wires (Yellow/Other Colors)**: Carry control signals from the Arduino to the servos, LCD, ultrasonic sensor, and LED matrix.
+### Next Steps
+Before the final draft, I plan to:
+1. Create and assemble the 3D printed WALL-E bot
+2. Install components correctly
+3. Fine-tune the code to display emotions corresponding to the correct distances
+
+![Schematic](secondmilestone.png)
+*Figure 3: Wiring for all components*
+
+[Ultra-sonic sensor guide](https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1):
+
+### My code and explanations 
+```// Include libraries for LCD, LED matrix, and Servo motors
+#include <LiquidCrystal_I2C.h>  // Library for I2C LCD
+#include <LedControl.h>         // Library for LED matrix
+#include <Servo.h>              // Library for Servo motors
+
+// Pins for LED matrix connected to Arduino
+int DIN = 11;
+int CS = 9;
+int CLK = 10;
+int DIN_2 = 6;
+int CS_2 = 8;
+int CLK_2 = 7;
+
+// Create instances for LCD and LED matrix
+LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD instance
+LedControl ledmatrix = LedControl(DIN, CLK, CS);  // LED matrix instance (left)
+LedControl ledmatrix_2 = LedControl(DIN_2, CLK_2, CS_2);  // LED matrix instance (right)
+
+// Create instances for the Servos
+Servo pan;         // Pan servo instance
+Servo tilt;        // Tilt servo instance
+Servo leftBrow;    // Left eyebrow servo instance
+Servo rightBrow;   // Right eyebrow servo instance
+
+// Pins for the ultrasonic sensor
+const int trigPin = 13;   // Trigger pin for ultrasonic sensor
+const int echoPin = 12;   // Echo pin for ultrasonic sensor
+
+// Variables to measure distance
+float duration, distance;
+
+// Bitmaps for different emotional expressions on LED matrix
+byte neutral_bmp[8] = {
+  B00000000,
+  B00111100,
+  B01000010,
+  B01011010,
+  B01011010,
+  B01000010,
+  B00111100,
+  B00000000
+};
+byte happyL_bmp[8] = {
+  B00000000,
+  B00011100,
+  B00100100,
+  B01011100,
+  B01011100,
+  B00100100,
+  B00011100,
+  B00000000
+};
+byte happyR_bmp[8] = {
+  B00000000,
+  B00111000,
+  B00100100,
+  B00111010,
+  B00111010,
+  B00100100,
+  B00111000,
+  B00000000
+};
+byte loveL_bmp[8] = {
+  B00011000,
+  B00100100,
+  B01000010,
+  B10000001,
+  B10000001,
+  B10011001,
+  B01100110,
+  B00000000
+};
+byte loveR_bmp[8] = {
+  B00011000,
+  B00100100,
+  B01000010,
+  B10000001,
+  B10000001,
+  B10011001,
+  B01100110,
+  B00000000
+};
+byte sad_bmp[8] = {
+  B10000001,
+  B01000010,
+  B00100100,
+  B00011000,
+  B00011000,
+  B00100100,
+  B01000010,
+  B10000001
+};
+byte surprisedL_bmp[8] = {
+  B00000000,
+  B01111110,
+  B01000010,
+  B01000010,
+  B01000010,
+  B01000010,
+  B01111110,
+  B00000000
+};
+byte surprisedR_bmp[8] = {
+  B00000000,
+  B01111110,
+  B01000010,
+  B01000010,
+  B01000010,
+  B01000010,
+  B01111110,
+  B00000000
+};
+
+// Function to display pattern on LED matrix
+void displayPattern(byte patternL[], byte patternR[]) {
+  for (int i = 0; i < 8; i++) {
+    ledmatrix.setColumn(0, i, patternL[i]);
+    ledmatrix_2.setColumn(0, i, patternR[i]);
+  }
+}
+
+// Function to write emotion on LCD
+void displayEmotion(const char* emotion) {
+  lcd.clear();
+  lcd.print(emotion);
+}
+
+// Function to move servos
+void moveServos(int left, int right, int panIn, int tiltIn) {
+  leftBrow.write(left);
+  rightBrow.write(right);
+  pan.write(panIn);
+  tilt.write(tiltIn);
+}
+
+// Function to measure distance using ultrasonic sensor
+float measureDistance() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  return (duration * 0.0343) / 2;
+}
+
+void setup() {
+  // Debugging
+  Serial.begin(9600);
+
+  // Set up LCD
+  lcd.init();
+  lcd.backlight();
+
+  // Set up LED matrices
+  ledmatrix.shutdown(0, false);
+  ledmatrix.setIntensity(0, 1);
+  ledmatrix.clearDisplay(0);
+
+  ledmatrix_2.shutdown(0, false);
+  ledmatrix_2.setIntensity(0, 1);
+  ledmatrix_2.clearDisplay(0);
+
+  // Initialize columns with letters
+  displayPattern(neutral_bmp, neutral_bmp);  // Initial neutral pattern
+  displayEmotion("Neutral");  // Initial neutral emotion
+
+  // Define input/outputs
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  // Attach servos to respective pins
+  pan.attach(5);
+  tilt.attach(4);
+  leftBrow.attach(2);
+  rightBrow.attach(3);
+
+  // Set initial positions of servos
+  moveServos(60, 90, 130, 90);  // Adjust as needed
+}
+
+void loop() {
+  // Measure distance using ultrasonic sensor
+  distance = measureDistance();
+  Serial.println(distance);
+
+  // Logic to display emotions based on distance
+  if (distance <= 10 && distance > 0) {
+    // Display sad emotion and prompt to back up
+    moveServos(60, 120, 130, 90);  // Adjust as needed
+    displayPattern(sad_bmp, sad_bmp);
+    displayEmotion("Please back up!");
+
+    // Move tilt servo up and down for effect
+    for (int i = 90; i > 45; i--) {
+      delay(10);
+      tilt.write(i);
+    }
+    for (int j = 45; j < 135; j++) {
+      delay(10);
+      tilt.write(j);
+    }
+  } else if (distance <= 30 && distance > 10) {
+    // Display happy emotion and perform a movement
+    tilt.write(90);  // Reset tilt position
+    displayPattern(happyL_bmp, happyR_bmp);
+    displayEmotion("I am so happy");
+
+    // Move pan servo left and right for effect
+    for (int i = 150; i > 110; i--) {
+      delay(10);
+      pan.write(i);
+    }
+    for (int j = 110; j < 150; j++) {
+      delay(10);
+      pan.write(j);
+    }
+  } else if (distance <= 50 && distance > 30) {
+    // Display love emotion and light up LED matrix
+    displayEmotion("I love you");
+    moveServos(90, 90, 130, 90);  
+
+    // Display heart pattern on LED matrix(blinking)
+    displayPattern(loveL_bmp, loveR_bmp);
+    delay(500);  // On for 500ms
+    ledmatrix.clearDisplay(0);  // Turn off left matrix
+    ledmatrix_2.clearDisplay(0);  // Turn off right matrix
+    delay(500);  // Off for 500ms
+  } else {
+    // Default to neutral emotion and initial servo position
+    displayPattern(neutral_bmp, neutral_bmp);
+    displayEmotion("Hello!");
+    moveServos(120, 60, 130, 90);  
+  }
+}
+
+```
+
+This code is mostly the same as milestone 2, but with minor tweaks. 
 ## Second Milestone: Integrating the components
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
