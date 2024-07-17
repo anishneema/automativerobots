@@ -1,6 +1,8 @@
 # WALL-E Robot: An Interactive Companion
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
+
 |:--:|:--:|:--:|:--:|
+
 |Anish N| Dougherty Valley High School | Computer Engineering | Incoming Senior
 
 Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. This page serves as a comprehensive guide on my steps taken to learn and implement over a time period of two weeks. The principles of this project can serve as a powerful tool for individuals to communicate without voice. 
