@@ -1,6 +1,6 @@
 # WALL-E Robot: An Interactive Companion
 
-Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. This page serves as a comprehensive guide on my steps taken to learn and implement over a time period of two weeks. 
+Have you ever wanted a personalized robot companion? Look no further! WALL-E is here, an innovative automative robot that responds to your presence. By simply moving your hand closer or farther away, you can change WALL-E's emotions and movements. This project combines Arduino programming, sensor technology, and expressive visual elements to make a robot come to life. This page serves as a comprehensive guide on my steps taken to learn and implement over a time period of two weeks. The principles of this project can serve as a powerful tool for individuals to communicate without voice. 
 
 **Important skills learned**
 -Soldering, Dremeling, Arduino programming, Ultrasonic sensor integration, Remote control system developement, App development and design, Wireless communication, Servo integration, Electrical wiring
@@ -19,6 +19,13 @@ In this milestone, I worked on controlling Robo from a remote controlled app. Ke
 
 ![Schematic](appcode.png)
 *Figure 6: *Design of app and code on MITappinventor*
+
+### Challenges
+
+- Sending a text to the LCD screen through the app
+- Enabling a system for a press and release 
+- Coding for blinking LED lights
+
 
 ### Third Milestone: Working Robo!
 
