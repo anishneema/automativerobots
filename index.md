@@ -942,26 +942,7 @@ Moving forward, I aim to:
 
 
 
-<!--- 
-/*
-# Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
-# Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
-
-```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-}
-```
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
@@ -980,19 +961,8 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Mini breadboard| helps providing processing power to servos| $6.75 | https://www.amazon.com/BB400-Solderless-Plug-BreadBoard-tie-points/dp/B0040Z1ERO/ref=asc_df_B0040Z1ERO/?tag=hyprod-20&linkCode=df0&hvadid=692875362841&hvpos=&hvnetw=g&hvrand=10172484802440772633&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-2281435177658&psc=1&mcid=df8a82d513d937b38ac19209b20d38be&hvocijid=10172484802440772633-B0040Z1ERO-&hvexpln=73&gad_source=1Link </a> |
 |Various M2 && M3 screws |assembly toolbox |$4.99 |https://www.amazon.com/DYWISHKEY-Pieces-Screws-Washers-Assortment/dp/B0CS9XVPLV/ref=sr_1_5?dib=eyJ2IjoiMSJ9.dh4QCEmZvciH5SBORhOCf75bMouvuVRAsfpzKgwH7vL3qE9hVvCkxHXIMEjY3AClbjCj1nowLTLXTWy9HpeeP_tURjiAhK6mKqwFIo94IAfClGjb6uS9TiMjzUswBqIJIi-8yiN-r17e9sW8e3-ywAt1h08lW7GXovk9ds6Vhvh11-V1cUFeQ_gNbs6nwPZtDqS5q0gNuZNU8O0UmgbdjWT7UU9cZF7B8GTORgzF8qw.WdawQ8PMaipfzxLESkhHX3kY3M3VV__lwt6X6uq1M5Y&dib_tag=se&hvadid=409999246310&hvdev=c&hvlocphy=9032183&hvnetw=g&hvqmt=b&hvrand=2835700877264352192&hvtargid=kwd-933490677&hydadcr=26614_10407671&keywords=m3+screws&qid=1721257749&sr=8-5 Link </a> |
 |various jumper cables|connecting all components together|$5.98|https://www.amazon.com/Elegoo-EL-CP-004-Multicolored-Breadboard-arduino/dp/B01EV70C78/ref=asc_df_B01EV70C78/?tag=hyprod-20&linkCode=df0&hvadid=692875362841&hvpos=&hvnetw=g&hvrand=743854505051106635&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-2281435178578&mcid=6d8a7ca3c39a3ad4877ede949dc655a6&hvocijid=743854505051106635-B01EV70C78-&hvexpln=73&gad_source=1&th=1 Link </a> |
-|3D printed parts|Container of robo|  Link </a> |
+|3D printed parts|Container of robo|
 
-
-
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
-
--->
 # Arduino Starter Project
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IUZZ2V6nGmU?si=mzgKdNSG2Q01wio3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
