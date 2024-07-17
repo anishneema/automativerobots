@@ -327,6 +327,8 @@ if(state ==255){
 }
 
 ```
+### Process of modification 
+
 Before coding the app, I first wired the bluetooth as depicted in the schematic. I had to be careful that the RX ran through a voltage divider, because it is rated for 3.3 V as opposed to arduinos 5V. 
 
 To implement the buttons, I used the before/after press blocks available on MITappinventor. By switching the state to "Z" when the user lets go of the button, the code was able to identify that robo should stop moving. Therefore, by constantly switching before state, robo was able to stop/start almost instantaneously. To ensure that robo moved smoothly throughout the path, I changed the position by 3 degrees. Since this code was in the void loop, it was able to smoothly travel through the range of motion looking as if it was one motion. 
