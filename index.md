@@ -342,7 +342,7 @@ To implement the LCD screen, I faced a unique problem. If I simply sent the stat
 
 ### Third Milestone: Working Robo!
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WgoiZ1K0GwM?si=B_8jLmUFtSOCsSyv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_Hg3DoX7dsg?si=uwZ-TM2jvdGeN9fH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 In this milestone, I assembled a working automative robot. Key achievements include: 
 
