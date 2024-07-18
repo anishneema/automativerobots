@@ -12,4 +12,9 @@
     width: 90%; /* Adjust this value accordingly */
     max-width: 1200px; /* Optionally, set a maximum width to ensure it doesn't get too wide */
     margin: 0 auto; /* Centers the content horizontally */
+    section#main_content {
+       width: 90%; /* Adjust this value accordingly */
+        max-width: 1200px; /* Optionally, set a maximum width to ensure it doesn't get too wide */
+        margin: 0 auto; /* Centers the content horizontally */
+    }
 }
