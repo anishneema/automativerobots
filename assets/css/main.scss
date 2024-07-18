@@ -8,4 +8,7 @@
     max-width: 1200px; /* Optionally, set a maximum width to ensure it doesn't get too wide */
     margin: 0 auto; /* Centers the content horizontally */
 }
+body {
+    display: grid;
+}
 
