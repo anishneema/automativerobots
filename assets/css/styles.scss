@@ -5,9 +5,6 @@
 ---
 
 @import "{{ site.theme }}";
-
-
-
 section#main-content {
     width: 90%; /* Adjust this value accordingly */
     max-width: 1200px; /* Optionally, set a maximum width to ensure it doesn't get too wide */
