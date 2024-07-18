@@ -3,7 +3,6 @@
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 
 |:--:|:--:|:--:|:--:|
-
 |Anish N| Dougherty Valley High School | Computer Engineering | Incoming Senior
 
 
