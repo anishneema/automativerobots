@@ -1,14 +1,10 @@
-
 ---
-# Keep this YAML front matter block to trigger Jekyll processing.
-# See https://jekyllrb.com/docs/frontmatter for more information.
 ---
 .anish_test {
     width: 90%; /* Adjust this value accordingly */
     max-width: 1200px; /* Optionally, set a maximum width to ensure it doesn't get too wide */
     margin: 0 auto; /* Centers the content horizontally */
 }
-    
 @import "{{ site.theme }}";
  #main-content .inner {
     width: 90%; /* Adjust this value accordingly */
