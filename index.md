@@ -38,7 +38,7 @@ In this milestone, I worked on controlling Robo from a remote controlled app. Ke
 
 ### My code and explanations 
 ![Ultrasonic-sensor logic](codelogic.png)
-*Figure 6: Installation of new HC-05 bluetooth module*
+*Figure 6: *Visual flowchart of ultrasonic logic*
 ```c++
 //pre-existing libraries
 #include <LiquidCrystal_I2C.h>
