@@ -27,7 +27,7 @@ In this milestone, I worked on controlling Robo from a remote controlled app. Ke
 ![Bluetooth Schematic](schematicwithbluetoothj_bb.png)
 *Figure 8: Installation of new HC-05 bluetooth module*
 
-![Schematic](appcode.png)
+![Schematic](logic.png)
 *Figure 7: *Design of app and code on MITappinventor*
 
 ### Challenges
