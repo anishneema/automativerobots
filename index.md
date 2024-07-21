@@ -27,7 +27,7 @@ In this milestone, I worked on controlling Robo from a remote controlled app. Ke
 ![Bluetooth Schematic](schematicwithbluetoothj_bb.png)
 *Figure 8: Installation of new HC-05 bluetooth module*
 
-![Schematic](logic.png)
+![Schematic](appcode.png)
 *Figure 7: *Design of app and code on MITappinventor*
 
 ### Challenges
@@ -37,7 +37,7 @@ In this milestone, I worked on controlling Robo from a remote controlled app. Ke
 - Wiring the bluetooth module appropiately 
 
 ### My code and explanations 
-![Ultrasonic-sensor logic](codelogic.png)
+![Visual logic of the code](logic.png)
 *Figure 6: *Visual flowchart of ultrasonic logic*
 ```c++
 //pre-existing libraries
